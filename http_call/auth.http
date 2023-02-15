@@ -1,0 +1,150 @@
+
+# https://afternoon-beyond-65238.herokuapp.com
+POST  http://127.0.0.1:3000/api/auth/singup HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "jayNarumah@demo.com",
+    "full_name": "Abduljawad Ibrahim",
+    "password": "12345678"
+}
+###
+POST http://127.0.0.1:3000/api/auth/signin HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "jayNarumah@demo.com",
+    "password": "12345678"
+}
+###
+Get http://127.0.0.1:3000/api/count/companies HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+###
+GET http://127.0.0.1:8000/api/aws-sms-test HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+###
+GET http://localhost:3000/api/company HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer 1|5vthuk5GMeqkj8izK08MDiQFLObokSS6vyI8AR8N
+
+###
+GET http://localhost:3000/api/company/uid HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+###
+POST http://127.0.0.1:3000/api/company HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiamF5TmFydW1haEBkZW1vLmNvbSIsImZ1bGxfbmFtZSI6IkFiZHVsamF3YWQgSWJyYWhpbSIsInVpZCI6ImNsZG9pZ3dtODAwMDBwODk4c3R2NTl5bTYifSwiaWF0IjoxNjc1NzYyMzUzLCJleHAiOjE2NzU3NjU5NTN9.KolGGFQugpSi1K3Xo3ibEMQLvJRjyTPRbBTrKtJzPFc
+
+{
+    "name": "Century Information System",
+    "email": "centuryqss@demo.com",
+    "address": "H&A Plaza Wuye, Abuja, Nigeria",
+    "phone_number": "+23470901068344",
+    "color": "efe44a",
+    "size": 3
+}
+###
+DELETE http://localhost:3000/api/company/uid HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+###
+PATCH http://127.0.0.1:3000/api/company HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiamF5TmFydW1haEBkZW1vLmNvbSIsImZ1bGxfbmFtZSI6IkFiZHVsamF3YWQgSWJyYWhpbSJ9LCJpYXQiOjE2NzU3MTgxNjcsImV4cCI6MTY3NTcyMTc2N30.w62F3ScdZXrrdMe5LNqSLzvRLxZ_1reL2vb-WxSpX9Y
+
+{
+    "name": "Century Information Systems Limited",
+    "email": "century@demo.com",
+    "address": "H&A Plaza Wuye, Abuja, Nigeria",
+    "phone_number": "+2347066352444",
+    "color": "efe44a",
+    "size": 3
+}
+###
+GET http://localhost:3000/api/pipeline-type HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer 1|5vthuk5GMeqkj8izK08MDiQFLObokSS6vyI8AR8N
+
+###
+GET http://localhost:3000/api/pipeline-type/clb9dthyc0002p8vkzwtng6np HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+###
+
+POST http://127.0.0.1:3000/api/pipeline-type HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer 1|H0C29aP3ZPbHObZKVxIhK6RXrjHWHAMpYXUD39A0
+
+{
+    "name": "Gas Pipeline"
+}
+###
+DELETE http://localhost:3000/api/pipeline-type/uid HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+###
+PATCH http://127.0.0.1:3000/api/pipeline-type/create HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer 1|H0C29aP3ZPbHObZKVxIhK6RXrjHWHAMpYXUD39A0
+
+{
+    "name": "Petrol Pipeline",
+    "email": "century@demo.com",
+    "address": "H&A Plaza Wuye, Abuja, Nigeria",
+    "phone_number": "+2347066352444",
+    "color": "efe44a",
+    "size": 3
+}
+###
+GET http://localhost:3000/api/pipeline/list HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer 1|5vthuk5GMeqkj8izK08MDiQFLObokSS6vyI8AR8N
+
+###
+GET http://localhost:3000/api/pipeline/detail/uid HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+###
+POST http://127.0.0.1:3000/api/pipeline/create HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer 1|H0C29aP3ZPbHObZKVxIhK6RXrjHWHAMpYXUD39A0
+
+{
+    "name": "Gas Pipeline",
+    "size": 2.1,
+    "pipelineTypeId": 1,
+    "companyId": 1,
+    "lat": [2.33, 45, 45.45],
+    "lng": [2.33, 45, 45.45]
+    
+}
+###
+DELETE http://localhost:3000/api/pipeline/delete/uid HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+###
+PATCH http://127.0.0.1:3000/api/pipeline/update/clb7neakr0000p8t8p3qhbewk HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer 1|H0C29aP3ZPbHObZKVxIhK6RXrjHWHAMpYXUD39A0
+
+{
+    "name": "Sample Pipeline Updated"
+    "size": 2.1,
+    "pipelineTypeId": 1,
+    "companyId": 1
+}

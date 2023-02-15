@@ -1,0 +1,81 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int    @id @default(autoincrement())
+  uid       String @unique @default(cuid())
+  full_name String
+  password  String @db.VarChar(1000)
+  salt      String @db.VarChar(1000)
+  email     String @unique
+
+  @@map("users")
+}
+
+model Company {
+  id           Int        @id @default(autoincrement())
+  uid          String     @unique @default(cuid())
+  name         String     @db.VarChar(350)
+  email        String     @unique()
+  phone_number String     @unique()
+  address      String     @db.VarChar(500)
+  color        String     @db.VarChar(50)
+  created_at   DateTime   @default(now())
+  updated_at   DateTime   @updatedAt
+  // relations
+  Pipeline     Pipeline[]
+
+  @@map("companies")
+}
+
+model PipelineType {
+  id         Int        @id @default(autoincrement())
+  uid        String     @unique @default(cuid())
+  name       String     @db.VarChar(200)
+  created_at DateTime   @default(now())
+  updated_at DateTime   @updatedAt
+  // relations
+  pipelines  Pipeline[]
+
+  @@map("pipeline_types")
+}
+
+model Pipeline {
+  id         Int      @id @default(autoincrement())
+  uid        String   @unique @default(cuid())
+  name       String   @db.VarChar(250)
+  size       Float
+  is_active  Boolean  @default(true)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  // relations
+  pipelineTypeId Int
+  PipelineType   PipelineType?   @relation(fields: [pipelineTypeId], references: [id])
+  companyId      Int
+  Company        Company?        @relation(fields: [companyId], references: [id])
+  pipelineRoutes PipelineRoute[]
+
+  @@map("pipelines")
+}
+
+model PipelineRoute {
+  id         Int       @id @default(autoincrement())
+  uid        String    @unique @default(cuid())
+  lat        String
+  lng        String
+  // relations
+  pipelineId Int
+  Pipeline   Pipeline? @relation(fields: [pipelineId], references: [id])
+
+  @@map("pipeline_routes")
+}
